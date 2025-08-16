@@ -1,1 +1,364 @@
 # flexart-s-pincel
+`flexartspincel.html`
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLEX ART'S & PINCEL | Design Gráfico</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset e estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Chakra Petch', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Cores temáticas */
+        :root {
+            --vermelho-sangue: #8B0000;
+            --preto: #000000;
+            --branco: #ffffff;
+            --cinza: #333333;
+        }
+        
+        /* Estilo do cabeçalho */
+        header {
+            background-color: var(--preto);
+            padding: 1rem 0;
+            border-bottom: 3px solid var(--vermelho-sangue);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            color: var(--vermelho-sangue);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background-color: var(--preto);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            color: var(--vermelho-sangue);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            color: var(--branco);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--vermelho-sangue);
+            color: var(--branco);
+            padding: 0.8rem 2rem;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        
+        .btn:hover {
+            background-color: #6e0000;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Serviços */
+        .services {
+            padding: 5rem 0;
+            background-color: var(--cinza);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--vermelho-sangue);
+            font-size: 2.5rem;
+            text-transform: uppercase;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background-color: var(--preto);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 5px solid var(--vermelho-sangue);
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(139, 0, 0, 0.3);
+        }
+        
+        .service-card h3 {
+            color: var(--vermelho-sangue);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card p {
+            color: var(--branco);
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Biografia */
+        .bio {
+            padding: 5rem 0;
+            background-color: var(--preto);
+        }
+        
+        .bio-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .bio h2 {
+            color: var(--vermelho-sangue);
+            margin-bottom: 2rem;
+        }
+        
+        .bio p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+        
+        /* Contatos */
+        .contact {
+            padding: 5rem 0;
+            background-color: var(--cinza);
+            text-align: center;
+        }
+        
+        .contact-info {
+            margin-top: 2rem;
+        }
+        
+        .contact-item {
+            margin-bottom: 1rem;
+        }
+        
+        .contact-item a {
+            color: var(--branco);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-item a:hover {
+            color: var(--vermelho-sangue);
+        }
+        
+        /* Rodapé */
+        footer {
+            background-color: var(--preto);
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 3px solid var(--vermelho-sangue);
+        }
+        
+        .copyright {
+            color: var(--branco);
+        }
+        
+        /* Efeitos */
+        .red-bar {
+            height: 5px;
+            width: 100%;
+            background-color: var(--vermelho-sangue);
+            margin: 1rem 0;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+    </style>
+</head>
+<body>
+    <header class="fade-in">
+        <div class="container">
+            <div class="logo">FLEX ART'S & PINCEL</div>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="fade-in">FLEX ART'S & PINCEL</h1>
+                <div class="red-bar fade-in delay-1"></div>
+                <p class="fade-in delay-2">Transformando ideias em artes visuais impactantes com criatividade e técnica</p>
+                <a href="#servicos" class="btn fade-in delay-3">Nossos Serviços</a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="servicos" class="services fade-in delay-4">
+        <div class="container">
+            <h2 class="section-title">Nossos Serviços</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Edição de Fotos Profissional</h3>
+                    <p>Transformamos suas fotos com correções de cor, remoção de imperfeições e efeitos profissionais para destacar sua imagem.</p>
+                    <div class="red-bar"></div>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Manipulação de Imagens Criativa</h3>
+                    <p>Criação de composições artísticas e surrealistas que contam histórias através da fusão de elementos visuais.</p>
+                    <div class="red-bar"></div>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Design Gráfico Personalizado</h3>
+                    <p>Desenvolvimento de identidades visuais, logos e materiais gráficos que representam sua marca com originalidade.</p>
+                    <div class="red-bar"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="bio">
+        <div class="container">
+            <h2 class="section-title">Biografia</h2>
+            <div class="bio-content">
+                <p>Olá, eu sou Gabriel, um jovem designer gráfico de 16 anos apaixonado por arte e tecnologia. Minha jornada no mundo do design começou como um hobby e rapidamente se transformou em uma paixão profissional.</p>
+                <p>Na FLEX ART'S & PINCEL, combino técnicas tradicionais de arte com as ferramentas digitais mais modernas para criar trabalhos que são tanto esteticamente impressionantes quanto funcionalmente eficazes.</p>
+                <p>Acredito que o bom design não é apenas sobre estética, mas sobre comunicação e solução de problemas. Cada projeto é uma oportunidade de contar uma história visual única.</p>
+                <p>Mesmo sendo jovem, trago uma perspectiva fresca e inovadora para cada desafio criativo, sempre buscando aprender e evoluir em minha arte.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="contact">
+        <div class="container">
+            <h2 class="section-title">Contato</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong>Telefone:</strong> <a href="tel:+5511940421995">11 94042-1995</a>
+                </div>
+                <div class="contact-item">
+                    <strong>E-mail:</strong> <a href="mailto:pineligabriel24gmail.com">pineligabriel24@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p class="copyright">© 2023 FLEX ART'S & PINCEL. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Efeito de scroll suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Animação ao scroll
+        const fadeElements = document.querySelectorAll('.services, .bio, .contact');
+        
+        const fadeInOnScroll = function() {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', fadeInOnScroll);
+        window.addEventListener('load', fadeInOnScroll);
+    </script>
+</body>
+</html
+
+```
